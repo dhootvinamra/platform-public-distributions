@@ -68,6 +68,12 @@ if [ -z $EXO_JVM_USER_LANGUAGE ] || [ $EXO_JVM_USER_LANGUAGE = "tr" ]; then
 fi
 
 # -----------------------------------------------------------------------------
+# Pseudo-language JIPT Crowdin
+# sq = Albanian 
+# -----------------------------------------------------------------------------
+[ -z $EXO_CROWDIN_JIPT ] && EXO_CROWDIN_JIPT="sq"
+
+# -----------------------------------------------------------------------------
 # Default EXO PLATFORM configuration
 # -----------------------------------------------------------------------------
 
@@ -148,7 +154,7 @@ fi
 CATALINA_OPTS="$CATALINA_OPTS -Dsun.rmi.dgc.client.gcInterval=3600000 -Dsun.rmi.dgc.server.gcInterval=3600000"
 
 # Default user locale defined at JVM level
-CATALINA_OPTS="$CATALINA_OPTS -Duser.language=${EXO_JVM_USER_LANGUAGE} -Duser.region=${EXO_JVM_USER_REGION}"
+CATALINA_OPTS="$CATALINA_OPTS -Duser.language=${EXO_JVM_USER_LANGUAGE} -Duser.region=${EXO_JVM_USER_REGION} -Dcrowdin.jipt=${EXO_CROWDIN_JIPT}"
 
 # Network settings
 CATALINA_OPTS="$CATALINA_OPTS -Djava.net.preferIPv4Stack=true"
